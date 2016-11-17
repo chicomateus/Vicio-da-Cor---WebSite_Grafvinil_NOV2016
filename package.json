@@ -1,0 +1,31 @@
+{
+  "name": "grafvinil",
+  "version": "1.0.0",
+  "description": "Website para o Vicio da Cor - Styleguide",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rui Rocha",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.17.5",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-jscs": "^4.0.0",
+    "gulp-jshint": "^2.0.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.2.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sass-lint": "^1.2.0",
+    "gulp-scss-lint": "^0.4.0",
+    "jshint": "^2.9.4",
+    "node-normalize-scss": "^1.4.0",
+    "postcss-reporter": "^1.4.1",
+    "postcss-scss": "^0.3.1",
+    "run-sequence": "^1.2.2",
+    "stylelint": "^7.5.0"
+  }
+}

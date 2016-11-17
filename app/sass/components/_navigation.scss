@@ -1,0 +1,132 @@
+//**
+// Navigation
+//**
+
+nav.nav-desktop {
+    overflow: hidden;
+    height: $nav-height;
+    background-color: $nav-bg;
+    color: $nav-color-text;
+    bottom: 0;
+    // position: absolute;
+    width: 100%;
+
+    .container {
+        padding: 0;
+        margin: auto;
+
+        .row {
+            padding: 0;
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+
+    ul {
+        position: relative;
+        @include media-breakpoint-down(xs) {
+            display: none;
+        }
+
+        li {
+            @extend .list-unstyled;
+            @extend .valign;
+            display: inline-block;
+            //max-width: 250px;
+            //include type class li.menu-item
+            //padding: 0px 4%;
+            @include media-breakpoint-between(sm, md) {
+                //margin: 0 1.6%;
+                padding: 16px 1.6%;
+            }
+            @include media-breakpoint-up(lg) {
+                //margin: 0 2.2%;
+                padding: 16px 2.2%;
+            }
+            @media (min-width: 1200px) {
+                //margin: 0 3%;
+                padding: 16px 3%;
+            }
+
+            a {
+                //padding: 0 1.6%;
+                text-decoration: none;
+                text-transform: uppercase;
+                color: $nav-color-text;
+                height: 100%;
+                height: $nav-height;
+            }
+
+            &.active,
+            &:active,
+            &:focus,
+            &:hover {
+                background-color: $nav-hover;
+            }
+        }
+    }
+}
+
+.nav-mobile {
+    @include navmobileicon() {
+        position: absolute;
+        z-index: 280;
+        top: 40px;
+        right: 16px;
+    }
+
+    &.open {
+        z-index: 200;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+    }
+
+    .list-menu {
+        //top:110px;
+        background-color: $nav-mobile-bg;
+        top: 0;
+        right: 0;
+        position: absolute;
+        z-index: 200;
+        width: 100vw;
+        height: 100vh;
+        display: none;
+        padding-top: 75px;
+
+        &.overlay {
+            position: fixed;
+            overflow-y: scroll;
+            top: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav ul {
+            margin: 0;
+            padding-left: 0;
+
+            li.menu-item {
+                font-size: 22px;
+                list-style-type: none;
+                text-align: right;
+                padding: 5px 16px 5px 0;
+
+                a {
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    color: $nav-color-text;
+                    width: 100%;
+                }
+
+                &:active,
+                &:focus,
+                &:hover {
+                    background-color: $nav-hover;
+                }
+            }
+        }
+    }
+}

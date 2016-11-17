@@ -1,0 +1,23 @@
+//**
+// Project Mixins
+//**
+
+// Responsive mixins
+@mixin responsive($res) {
+  @media screen and (max-width: $res) {
+    @content;
+  }
+}
+
+@mixin mobilefirst($res) {
+  @media screen and (min-width: $res) {
+    @content;
+  }
+}
+
+
+// Element Square -same with and height
+@mixin square_el($square-side:250px){
+	height: $square-side;
+	 width: $square-side;
+}

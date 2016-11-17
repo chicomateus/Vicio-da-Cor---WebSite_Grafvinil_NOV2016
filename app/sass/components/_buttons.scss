@@ -1,0 +1,108 @@
+.btn {
+  //border-radius: $btn-br;
+  background: transparent;
+  border: 1px solid $box-btn-border;
+  color: $box-btn-text;
+  display: inline-block;
+  outline: none;
+  //padding: 0 25px;
+  text-align: center;
+  text-decoration: none;
+  //text-transform: capitalize;
+
+
+
+
+}
+
+
+.box-btn{
+  padding:5px 15px;
+  max-width:180px;
+  min-width:80px;
+  margin: 0 auto;
+  vertical-align: middle;
+        font-weight: 600;
+    @include media-breakpoint-down(xs) {
+      font-size: 130%;
+
+      line-height: 150%;
+      //padding: 5% 8%;
+      //height: 65px;
+
+
+    }
+
+    @include media-breakpoint-between(sm, md) {
+      width: 80%;
+      font-size: 130%;
+    }
+     @include media-breakpoint-between(md,lg) {
+      width: 80%;
+      font-size: 130%;
+    }
+    @include media-breakpoint-up(xl) {
+      font-size: 150%;
+      width: 80%}
+
+    max-height: $box-btn-h;
+    font-size: $box-btn-font-size;
+    background-color:$box-btn-bg;
+    font-weight: 300;
+    font-style: italic;
+
+    &:hover,
+    &:focus {
+    background: $hover-color;
+    text-decoration: none;
+  }
+
+    &:active {
+      background: darken($hover-color, 10);
+  }
+
+  &.no-foto{
+    padding: 5px  30px;
+
+  }
+}
+
+  .big-box-btn{
+    width: 100%;
+    //margin:0 25px;
+    max-height: $big-box-btn-h;
+    //font-size: $big-box-btn-font-size;
+    background-color:$big-box-btn-bg;
+    //max-width: $big-box-btn-w;
+
+    border: 2px solid $white;
+    vertical-align: center;
+
+    font-weight: 600;
+    font-style: italic;
+
+    @include media-breakpoint-down(xs) {
+      font-size: 130%;
+      //line-height: 1.4em;
+     // padding: 5% 8%;
+      //height: 27vw;
+
+    }
+    @include media-breakpoint-up(xs) {
+      font-size: 150%;
+      line-height: 1.4em;
+      padding: 5% 8%;
+    }
+
+
+  }
+
+  .action-btn {
+    width: $box-btn-w;
+    height: $box-btn-h;
+    font-size: $box-btn-font-size;
+    background-color:$rose;
+    font-weight: 300;
+    font-style: italic;
+
+  }

@@ -1,0 +1,46 @@
+TODO LIST
+
+Responsive modo:√
+
+Tipografia 
+
+xl:	√
+lg:√
+md:√
+sm:√
+----------
+Menu Hamburger√
+
+-------------------------
+----------------------------
+Formulário
+Pretos de overlay a 80%
+
+----------------------------
+
+Página Info Estática
+
+
+--------------------------
+
+
+COMPONENTES:
+
+Header Carousel √
+
+Carouse section √
+
+MENU: 
+
+Hover sobre o menu;
+ - adcionionar active class na pagina selecionada
+versão modo responsivo;√
+
+
+
+-------------------
+
+
+
+
+
