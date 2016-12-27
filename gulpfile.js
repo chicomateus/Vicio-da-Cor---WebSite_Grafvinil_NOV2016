@@ -1,6 +1,8 @@
   const gulp = require('gulp');
   runSequence = require('run-sequence');
 	 browserSync = require('browser-sync').create();
+   php  = require('gulp-connect-php');
+
 // This will keeps pipes working after error event
  	 plumber = require('gulp-plumber');
 	 notify = require("gulp-notify");
@@ -19,6 +21,18 @@
 // Run All tasks one by one
 gulp.task('default',['browserSync']);
 
+gulp.task('php', ['php-sync'], function () {
+    gulp.watch(['app/*.php'], [reload]);
+    gulp.watch('app/sass/**/*.scss', ['compile-sass']);
+ 	 gulp.watch('app/**/*.html', [reload]);
+ 	 gulp.watch(['app/css/**/*.css'], ['autoprefixerCSS', [reload]]);
+ 	 gulp.watch('app/js/**/*.js', ['JS-lint']);
+});
+
+// Run PHP server
+gulp.task('php', function() {
+    php.server({ base: 'app', port: 8010, keepalive: true});
+});
 
 /// ----------- Browser Sync  TASKS
 gulp.task('browserSync', function() {
@@ -35,6 +49,14 @@ gulp.task('browserSync', function() {
   })
 })
 
+gulp.task('php-sync',['php'], function() {
+    browserSync({
+        proxy: '127.0.0.1:8010',
+        port: 8080,
+        open: false,
+        notify: true
+    });
+});
 
 /* COMPILE SASS TASK
  - Verificação de erros no sass
@@ -52,7 +74,6 @@ gulp.task('compile-sass', function () {
       includePaths: require('node-normalize-scss').includePaths
     }))
     .pipe(gulp.dest('app/css/'))
-    .pipe($.size())
     .pipe(notify({
       message: "Generated file: <%= file.relative %> @ <%= options.date %>",
       templateOptions: {
@@ -122,7 +143,7 @@ gulp.task('autoprefixerCSS', () =>
    // Reloads the browser whenever HTML or JS files change
    gulp.watch('app/sass/**/*.scss', ['compile-sass']);
 	 gulp.watch('app/**/*.html', browserSync.reload);
-	 gulp.watch(['app/css/**/*.css'], ['autoprefixerCSS', browserSync.reload]);
+	 gulp.watch('app/css/**/*.css', browserSync.reload);
 	 gulp.watch('app/js/**/*.js', ['JS-lint']);
 	 gulp.watch(['app/img/**/*'],browserSync.reload);
 

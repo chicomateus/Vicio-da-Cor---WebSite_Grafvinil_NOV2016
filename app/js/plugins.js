@@ -36,4 +36,8 @@ $(document).ready(function(){
     margin: 10,
     items: 1,
   });
+
+  $('.iframe-link').magnificPopup({type: 'iframe'});
+
+  
 });

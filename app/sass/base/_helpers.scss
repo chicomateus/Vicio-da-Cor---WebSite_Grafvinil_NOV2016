@@ -10,7 +10,7 @@
 /*
 * Lock the scroll in the element
 */
-  .noscroll { 
+  .noscroll {
   overflow: hidden;
 }
 /*
@@ -143,4 +143,52 @@ hr {
 }
 .blue{
   color: $blue;
+}
+.black{
+  color:#3d3d3d;
+}
+.noTopPad{
+  padding-top: 0 !important;
+}
+.noSidePad{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.noSideMarg{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+@include media-breakpoint-down(xs) {
+      .noSidePad-xs{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+
+      }
+      .noSideMarg-xs{
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      .noTopMarg-xs{
+        margin-top: 0 !important;
+      }
+      .noBottomMarg-xs{
+        margin-bottom: 0 !important;
+      }
+}
+@include media-breakpoint-up(sm) {
+      .noSidePad-sm{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+
+      }
+      .noSideMarg-sm{
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      .noTopMarg-sm{
+        margin-top: 0 !important;
+      }
+      .noBottomMarg-sm{
+        margin-bottom: 0 !important;
+      }
 }

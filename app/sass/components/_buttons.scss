@@ -1,7 +1,7 @@
 .btn {
   //border-radius: $btn-br;
   background: transparent;
-  border: 1px solid $box-btn-border;
+  border: 2px solid $box-btn-border;
   color: $box-btn-text;
   display: inline-block;
   outline: none;
@@ -10,7 +10,7 @@
   text-decoration: none;
   //text-transform: capitalize;
 
-
+cursor: pointer;
 
 
 }
@@ -98,11 +98,17 @@
   }
 
   .action-btn {
-    width: $box-btn-w;
-    height: $box-btn-h;
-    font-size: $box-btn-font-size;
+    padding: 10px 60px;
+    font-size: 22px;
     background-color:$rose;
     font-weight: 300;
     font-style: italic;
-
+    cursor: pointer;
+    &:hover{
+      background-color:$rose-mutiply;
+    }
+  }
+  .small-btn{
+    padding: 5px 10px;
+    font-size: 10pt;
   }

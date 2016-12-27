@@ -5,7 +5,7 @@
 //@import "../../node_modules/font-awesome/scss/font-awesome.scss";
 
 // Import fonts from Google
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i");
+//@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,600i,700");
 
 // Set variables and reusable mixins
 @import 'base/config';//
@@ -32,7 +32,7 @@
 // @import 'components/media';
   @import 'components/buttons';
 // @import 'components/tables';
-// @import 'components/forms';
+ @import 'components/forms';
 
  @import 'components/footer';
 

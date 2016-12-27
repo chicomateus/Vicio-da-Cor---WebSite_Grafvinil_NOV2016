@@ -1,0 +1,15 @@
+
+{
+  "cores":{
+    "Vermelho": "Vermelho",
+  	"Vermelho Escuro": "Vermelho Escuro",
+  	"Verde": "Verde",
+  	"Azul": "Azul"
+  },
+  "Espessuras":{
+    "3mm": "3mm",
+    "5mm": "5mm",
+    "8mm (Branco)": "8mm (Branco)",
+    "10mm(Branco)": "10mm(Branco)"
+  }
+}

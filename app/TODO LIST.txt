@@ -2,7 +2,7 @@ TODO LIST
 
 Responsive modo:√
 
-Tipografia 
+Tipografia
 
 xl:	√
 lg:√
@@ -16,6 +16,14 @@ Menu Hamburger√
 Formulário
 Pretos de overlay a 80%
 
+ - FORM PAG1 -
+    mutiplicação por java
+    sufixo metros
+- FORM PAG2 - 
+- FORM PAG3 -
+- FORM PAG4 -
+- FORM PAG5 -
+- FORM PAG6 -
 ----------------------------
 
 Página Info Estática
@@ -30,7 +38,7 @@ Header Carousel √
 
 Carouse section √
 
-MENU: 
+MENU:
 
 Hover sobre o menu;
  - adcionionar active class na pagina selecionada
@@ -39,8 +47,3 @@ versão modo responsivo;√
 
 
 -------------------
-
-
-
-
-

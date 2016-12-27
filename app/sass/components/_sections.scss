@@ -220,3 +220,24 @@
 		 }
 	 }
  }
+
+.formulario{
+	background-color:#dbdbdb;
+	padding: 50px 16px;
+
+	.footer-form{
+		a{
+			text-decoration: none;
+			color: $dark-gray;
+		}
+		p{
+			font-size: 10pt;
+			line-height: 20px;
+		}
+	}
+}
+@include media-breakpoint-up(sm) {
+	#SubmitBtn{
+		float: right !important;
+		}
+	}

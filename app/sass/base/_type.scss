@@ -78,8 +78,14 @@ p {
 .underline{
     text-decoration: underline;
   }
+.uppercase{
+    text-transform: uppercase;
+  }
 .bold{
   font-weight: 600;
+}
+.small{
+  font-size: 10px;
 }
 a{
   text-decoration: none;

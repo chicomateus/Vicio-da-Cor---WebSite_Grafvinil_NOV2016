@@ -1,0 +1,296 @@
+<!-- NÃO REMOVER ISSO O QUE ESTÁ ENTRE ESTES COMENTÁRIOS-->
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Projecto Grafvinil</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Social Cards -->
+
+    <!-- FACEBOOK -->
+
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+
+    <!-- FACEBOOK -->
+
+    <!-- TWITTER -->
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@site_account">
+    <meta name="twitter:creator" content="@individual_account">
+    <meta name="twitter:url" content="http://www.example.com/path/to/page.html">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="http://www.example.com/path/to/image.jpg">
+
+    <!-- TWITTER -->
+
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="../css/main.css">
+
+    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+
+
+
+</head>
+
+<body>
+    <!-- BEGIN MAIN STRUCTURE -->
+    <!-- NÃO REMOVER ISSO O QUE ESTÁ ENTRE ESTES COMENTÁRIOS-->
+    <main>
+        <div class="main-body">
+            <!-- NÃO REMOVER ISSO O QUE ESTÁ ENTRE ESTES COMENTÁRIOS-->
+
+            <!-- INTRODUZIR AS SECTIONS ENTRE COMMENTS -->
+            <section class="formulario">
+                <div class="container">
+                    <form action="form-core.php" method="post" enctype="multipart/form-data">
+                        <div class="row header-form">
+                            <h3 class="blue">Faça a sua encomenda</h3>
+                            <p>Existem dois tipos de <i>headers</i>, um dinâmico com carrousel de fundo e um estático com apenas uma imagem de fundo
+                            </p>
+                        </div>
+                        <!-- INICIO - Informações Pessoais  -->
+                        <div class="row personalInfo-form">
+                            <fieldset>
+                                <legend>Dados Pessoais</legend>
+
+                                <div class="row field">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 noSidePad-xs noSideMarg-xs" for="">Nome</label>
+                                    <input class="col-xs-12 col-sm-8 col-md-8" type="text" name="data[main][info-personal][name]" autofocus required placeholder="">
+                                </div>
+                                <div class="row field">
+
+                                    <label class="col-xs-12 col-sm-3 col-md-2 noSidePad-xs noSideMarg-xs" for="">Email</label>
+                                    <input class="col-xs-12 col-sm-8 col-md-5" type="email" name="data[main][info-personal][email]" required placeholder="">
+
+                                </div>
+                                <div class="row field">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 noSidePad-xs noSideMarg-xs" for="">Telefone</label></label>
+                                    <input class="col-xs-12 col-sm-8 col-md-5" type="tel" name="data[main][info-personal][phone]" required placeholder="">
+
+
+
+                                </div>
+                            </fieldset>
+                        </div>
+                        <!-- FIM - Informações Pessoais  -->
+
+                        <!-- INICIO - Informações para Entrega  -->
+
+                        <div class="row personalInfo-form">
+                            <fieldset>
+                                <legend>Dados para entrega / Colocação</legend>
+
+                                <div class="row field">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 noSidePad-xs noSideMarg-xs" for="">Morada</label>
+                                    <input class="col-xs-12 col-sm-8 col-md-8" type="text" name="data[main][info-morada][morada]" required placeholder="">
+                                </div>
+                                <div class="row field">
+                                    <label class="col-xs-12 col-sm-3 col-md-2 noSidePad-xs noSideMarg-xs" for="">Código Postal</label>
+                                    <input class="col-xs-12 col-sm-5 col-md-5" type="text" name="data[main][info-morada][codPostal]" pattern="[0-9]{4}[\-]?[0-9]{3}" required placeholder="0000-000">
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <!-- FIM - Informações para Entrega  -->
+                        <!-- WALL FORM  - medidas -->
+                        <div class="row upload-form">
+                            <fieldset>
+                                <legend>Medidas da área a decorar (m)</legend>
+                                <div class="row field">
+                                    <label class="col-xs-12 col-sm-3 col-md-3 noSidePad-xs noSideMarg-xs" for="">
+                                      <span class="bold black">Paredes uniformes</span>
+                                      </br>Altura
+                                      </br>Comprimento
+                                    </label>
+                                    <div class="col-xs-12 noSidePad-xs col-sm-9 col-md-8">
+                                        <div class="row field noTopPad">
+                                            <input class="col-xs-6 col-sm-3 col-md-2" type="number" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="data[Wall-Medidas][PUniforme][altura]" placeholder="A=">
+                                        </div>
+                                        <div class="row field noTopPad">
+                                            <input class="col-xs-6 col-sm-3 col-md-2" type="number" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="data[Wall-Medidas][PUniforme][comprimento]" placeholder="C=">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row field">
+                                    <label class="col-xs-12 col-sm-3 col-md-3  noSidePad-xs noSideMarg-xs" for=""><span class="bold black">Paredes com janelas ou portas</span></br>Várias alturas e vários comprimentos <cite>(preencha apenas os campos necessários)</cite></label>
+                                    <div class="col-xs-12 noSidePad-xs col-sm-8 col-md-8">
+                                        <div id="Amedidas" class="row field noTopPad">
+                                            <legend class="small">Alturas</legend>
+                                            <input class="col-xs-5 col-sm-3 col-md-2 medidas" type="number" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="data[Wall-Medidas][Pcomplexa][Alturas][]" placeholder="A1=">
+                                            <input class="col-xs-5 col-sm-3 col-md-2 medidas" type="number" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="data[Wall-Medidas][Pcomplexa][Alturas][]" placeholder="A2=">
+                                            <input class="col-xs-5 col-sm-3 col-md-2 medidas" type="number" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="data[Wall-Medidas][Pcomplexa][Alturas][]" placeholder="A3=">
+                                            <input class="col-xs-5 col-sm-3 col-md-2 medidas" type="number" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="data[Wall-Medidas][Pcomplexa][Alturas][]l" placeholder="A4=">
+                                            <input class="col-xs-5 col-sm-3 col-md-2 medidas" type="number" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="data[Wall-Medidas][Pcomplexa][Alturas][]" placeholder="A5=">
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                              <a class="add icon" title="Add" id="AddBtnA" href="javascript:void(0)"></a>
+                                              <a class="subtract icon" title="Subtract" id="RmvBtnA" href="javascript:void(0)"></a>
+                                            </div>
+                                        </div>
+                                        <div id="Cmedidas" class="row field noTopPad">
+                                          <legend class="small">Comprimentos</legend>
+                                            <input class="col-xs-5 col-sm-3 col-md-2 medidas" type="number" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="data[Wall-Medidas][Pcomplexa][Comprimentos][]" placeholder="C1=">
+                                            <input class="col-xs-5 col-sm-3 col-md-2 medidas" type="number" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="data[Wall-Medidas][Pcomplexa][Comprimentos][]" placeholder="C2=">
+                                            <input class="col-xs-5 col-sm-3 col-md-2 medidas" type="number" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="data[Wall-Medidas][Pcomplexa][Comprimentos][]" placeholder="C3=">
+                                            <input class="col-xs-5 col-sm-3 col-md-2 medidas" type="number" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="data[Wall-Medidas][Pcomplexa][Comprimentos][]" placeholder="C4=">
+                                            <input class="col-xs-5 col-sm-3 col-md-2 medidas" type="number" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="data[Wall-Medidas][Pcomplexa][Comprimentos][]" placeholder="C5=">
+                                            <input class="col-xs-5 col-sm-3 col-md-2 medidas" type="number" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="data[Wall-Medidas][Pcomplexa][Comprimentos][]" placeholder="C6=">
+                                            <input class="col-xs-5 col-sm-3 col-md-2 medidas" type="number" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="data[Wall-Medidas][Pcomplexa][Comprimentos][]" placeholder="C7=">
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                              <a class="add icon" title="Add" id="AddBtnC" href="javascript:void(0)"></a>
+                                              <a class="subtract icon" title="Subtract" id="RmvBtnC" href="javascript:void(0)"></a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row field">
+                                    <label class="col-xs-12 col-sm-3 col-md-3 noSidePad-xs noSideMarg-xs" for=""><span class="bold black">Observações relevantes</span> </br>Números de tomadas, candeiros, plasmas, ou outros objectos aplicados na parede</label>
+                                    <div style="padding-top:15px;"  class="col-xs-12 noSidePad-xs col-sm-8 col-md-8">
+                                        <textarea rows="5" cols="0" class="col-xs-12" name="data[Wall-Medidas][Observacao]">
+
+                                          </textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <!--END WALL FORM  -->
+
+                        <!-- INICIO - Upload e Termos de Utilzaçao  -->
+
+                        <div class="row upload-form">
+                            <fieldset>
+                                <legend>A imagem a usar na decoração</legend>
+                                <div class="row field">
+                                    <label class="col-xs-12 col-sm-4 col-md-3 noSidePad-xs noSideMarg-xs " for="">Imagem escolhida no <a href="#">banco de imagem</a></label>
+                                    <input class="col-xs-12 col-sm-7 col-md-7" type="url" pattern="https?://.+" name="data[Img][img-url]" placeholder="Cole aqui o link copiado">
+                                </div>
+
+                                <div class="row field">
+                                    <label class="col-xs-12 col-sm-4 col-md-3 noSidePad-xs noSideMarg-xs" for="">ou envie uma imagem da sua autoria</label>
+                                    <div class="box">
+                                        <input type="file" name="data" id="file-1" class="inputfile " data-multiple-caption="{count} ficheiros escolhidos"  />
+                                        <label class="noSideMarg" for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Escolha um ficheiro&hellip;</span></label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="row footer-form">
+                            <fieldset>
+                                <legend>Finalizar encomenda</legend>
+                                <p>Todos os dados pessoais e morada solicitados são obrigatórios. Após encomendar receberá um e-mail de resposta com a simulação da imagem no espaço a decorar, o valor do orçamento para o trabalho e o NIB
+para o qual deverá fazer a transferência para validara encomenda.</p>
+<p>
+  Ao solicitar este orçamento aceita os <a class="bold" href="#"><strong>Termos e Condiçoes</strong></a> comerciais deste serviço.
+</p>
+                            </fieldset>
+                        </div>
+
+                        <!-- Tipo de Formulário -->
+                        <input type="hidden" name="data[form]" value="WALL">
+                        <!-- FIM - Upload e Termos de Utilzaçao  -->
+                          <div class="row text-center" style="padding-top:15px;">
+                            <button id="SubmitBtn" type="submit" class="btn action-btn">Orçamentar</button>
+                            </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- INTRODUZIR AS SECTIONS ENTRE COMMENTS -->
+
+
+            <!-- NÃO REMOVER ISSO O QUE ESTÁ ENTRE ESTES COMENTÁRIOS-->
+        </div>
+    </main>
+    <!-- NÃO REMOVER ISSO O QUE ESTÁ ENTRE ESTES COMENTÁRIOS-->
+    <!-- END MAIN STRUCTURE -->
+
+    <!-- NÃO REMOVER ISSO O QUE ESTÁ ENTRE ESTES COMENTÁRIOS-->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../js/vendor/jquery-1.12.0.min.js"><\/script>')
+    </script>
+
+    <script src="../js/main.js"></script>
+    <script text="javascript">
+      $(document).ready(function() {
+          //ADDDDD new input
+        $('#AddBtnA').on("click",function(e) { //user click on remove text
+            e.preventDefault();
+            var count = $("#Amedidas input").length;
+            count++;
+            var html  = '<input class="col-xs-5 col-sm-3 col-md-2 medidas" type="number" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="data[Wall-Medidas][Pcomplexa][Alturas][]" placeholder="A'+ count +'=">';
+
+            $("#Amedidas div").before(html);
+
+        });
+
+        // RRRREEEMOOOOVVEEE last input
+        $('#RmvBtnA').on("click",function(e) { //user click on remove text
+            e.preventDefault();
+            $("#Amedidas input:last").fadeOut('slow',function() {
+              $(this).remove();
+            });
+          });
+
+
+//_--------------------------
+
+          $('#AddBtnC').on("click",function(e) { //user click on remove text
+              e.preventDefault();
+              var count = $("#Cmedidas input").length;
+              count++;
+              var html  = '<input class="col-xs-5 col-sm-3 col-md-2 medidas" type="number" pattern="[-+]?[0-9]*[.,]?[0-9]+" name="data[Wall-Medidas][Pcomplexa][Comprimentos][]" placeholder="C'+ count +'= ">';
+
+              $("#Cmedidas div").before(html);
+
+          });
+
+          // RRRREEEMOOOOVVEEE last input
+          $('#RmvBtnC').on("click",function(e) { //user click on remove text
+              e.preventDefault();
+              $("#Cmedidas input:last").fadeOut('slow',function() {
+                $(this).remove();
+              });
+            });
+      });
+    </script>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!--Dados estatistico de acessos do site  -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = 'https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
+<!-- NÃO REMOVER ISSO O QUE ESTÁ ENTRE ESTES COMENTÁRIOS-->
