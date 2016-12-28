@@ -6,7 +6,7 @@
 
 
     public function prepare_html_img($data,$files){
-      if(empty(array_filter($files['data']['error']))){
+      if($files['data']['error']==0){
             $html.= "<h3>Imagem Em Anexo</h3>";
       }
       if (!empty($data['img-url'])) {
@@ -263,13 +263,13 @@
 
     public function UploadImage($image){
           // Mime Type
-          preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $image["name"][0], $ext);
+          preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $image["name"], $ext);
           // File name
           $name = md5(uniqid(time())) . "." . $ext[1];
           // Path
           $path = "../uploads/" . $name;
           // Save
-          move_uploaded_file($image["tmp_name"][0], $path);
+          move_uploaded_file($image["tmp_name"], $path);
           // Debug
           //echo $name;
           return $path;

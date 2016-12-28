@@ -53,7 +53,7 @@
             <!-- INTRODUZIR AS SECTIONS ENTRE COMMENTS -->
             <section class="formulario">
                 <div class="container">
-                    <form action="form-core.php" method="post" enctype="multipart/form-data">
+                    <form id="EncForm" action="form-core.php" method="post" enctype="multipart/form-data">
                         <div class="row header-form">
                             <h3 class="blue">Faça a sua encomenda</h3>
                             <p>Existem dois tipos de <i>headers</i>, um dinâmico com carrousel de fundo e um estático com apenas uma imagem de fundo
@@ -206,6 +206,12 @@
                     <button id="SubmitBtn" type="submit" class="btn action-btn">Orçamentar</button>
                 </div>
                 </form>
+
+                <div class="row sucess-form" style="height: 100vh;display:none;">
+                    <h3 class="blue">A sua encomenda foi enviada</h3>
+                      <p>Existem dois tipos de <i>headers</i>, um dinâmico com carrousel de fundo e um estático com apenas uma imagem de fundo
+                    </p>
+                </div>
         </div>
         </section>
 
@@ -219,13 +225,58 @@
     <!-- END MAIN STRUCTURE -->
 
     <!-- NÃO REMOVER ISSO O QUE ESTÁ ENTRE ESTES COMENTÁRIOS-->
-    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="../js/vendor/jquery-1.12.0.min.js"></script>
     <script>
         window.jQuery || document.write('<script src="../js/vendor/jquery-1.12.0.min.js"><\/script>')
     </script>
 
     <script src="../js/main.js"></script>
     <script text="javascript">
+
+    $(function() {
+    // Get the form.
+    var form = $('#EncForm');
+
+    $(form).submit(function(event) {
+    // Stop the browser from submitting the form.
+    event.preventDefault();
+    var formData = new FormData($(this)[0]);
+
+       $.ajax({
+              type: "POST",
+              url: form.attr('action'),
+              data: formData, // serializes the form's elements.
+              async: false,
+              success: function(data)
+              {
+                  console.log(data);
+                  // if(data==='1'){
+                  //   $('#EncForm').fadeOut('slow',function(){
+                  //     $('.sucess-form').fadeIn();
+                  //   });
+                  // }else{
+                  //   alert('Aconteceu um problema com seu pedido, por favor tente outra x');
+                  // }
+              },
+              cache: false,
+              contentType: false,
+              processData: false,
+              xhr: function() {  // Custom XMLHttpRequest
+                  var myXhr = $.ajaxSettings.xhr();
+                  if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
+                      myXhr.upload.addEventListener('progress', function () {
+                          // faz alguma coisa durante o progresso do upload
+                      }, false);
+                  }
+              return myXhr;
+              }
+            });
+          return false;
+    });
+
+});
+
+
         $(document).ready(function() {
               WINDOWS_SELECT()
             $('#Add_Field_Button').on("click", function(e) { //user click on remove text
@@ -262,6 +313,32 @@
                         $('.MedidaQuantidades .subtract').addClass('hidden');
                     }
                 });
+
+                // this is the id of the form
+                // $("#Form").submit(function(e) {
+                //
+                //   alert("work");
+                    // $.ajax({
+                    //        type: "POST",
+                    //        url: $("#Form").attr('action'),
+                    //        data: $("#Form").serialize(), // serializes the form's elements.
+                    //        success: function(data)
+                    //        {
+                    //            alert(data); // show response from the php script.
+                    //        }
+                    //      });
+                    //
+                    // e.preventDefault(); // avoid to execute the actual submit of the form.
+                // });
+
+
+
+                // $('#SubmitBtn').on("click", function(event) {
+                //   event.preventDefault();
+                //         console.log($("#Form").serialize());
+                //
+                // });
+
 
               });
 

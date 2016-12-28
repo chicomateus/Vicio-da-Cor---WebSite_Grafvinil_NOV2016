@@ -5,11 +5,27 @@ include 'mailClass.php';
 $today = date("F j, Y, g:i a");
 $form  = new FormData();
 
-echo "<pre>";
-  print_r($_POST);
-echo "</pre>";
+// echo "<pre>";
+// print_r($_FILES);
+//   print_r($_POST);
+// echo "</pre>";
 
 if (isset($_POST[data][form])){
+  //----------- DEFINIR VARIAVEIS
+
+  //// Configuração de Emails
+
+  /* Email de quem gere e recebe as encomendas*/
+  $email_main="rmvrocha@gmail.com";
+  /* Email de envio - tem de ser diferente do $email_main */
+  $email_sender="ruicatrinho@gmail.com";
+  /* Email do cliente - para envio de copia e confirmação da encomenda*/
+  $client_email= $_POST[data][main]['info-personal'][email];
+
+
+
+
+
   $data =$_POST[data];
 
   switch ($data[form]) {
@@ -57,27 +73,15 @@ if (isset($_POST[data][form])){
   }
 
 
-}
-  if(empty(array_filter($_FILES['data']['error']))){
-      $image = $_FILES[data];
 
-      if(preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $image[type][0]))
+  if($_FILES['data']['error']== 0 ){
+      $image = $_FILES[data];
+      if(preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $image[type]))
       {
 
       $path_img = $form->UploadImage($image);
       }
   }
-
-//----------- DEFINIR VARIAVEIS
-
-//// Configuração de Emails
-
-/* Email de quem gere e recebe as encomendas*/
-$email_main="rmvrocha@gmail.com";
-/* Email de envio - tem de ser diferente do $email_main */
-$email_sender="ruicatrinho@gmail.com";
-/* Email do cliente - para envio de copia e confirmação da encomenda*/
-$client_email= $_POST[data][main]['info-personal'][email];
 
 
 // A ENVIAR O EMAIL para o Gestor de Encomendas
@@ -93,7 +97,6 @@ $client_email= $_POST[data][main]['info-personal'][email];
 
     $html_body.= $form->prepare_html_img($_POST[data][Img],$_FILES);
 
-      echo $html_body;
     $mail   = new Mail($to, $from, $subject, $text_body, $html_body);
 
     //ADD ANEXO - IMAGEM POR ANEXO
@@ -101,8 +104,8 @@ $client_email= $_POST[data][main]['info-personal'][email];
         $mail->add_attachment($path_img);
     }
 //_____________________
-    $mail->add_header("Reply-To:".$email);
-    $mail->send();
+    $mail->add_header("Reply-To: ".$cliente_email);
+    $sucess = $mail->send();
 
 
     // A ENVIAR O EMAIL de copia para o cliente
@@ -125,7 +128,9 @@ $client_email= $_POST[data][main]['info-personal'][email];
             $mail->add_attachment($path_img);
         }
     //_____________________
-        $mail->add_header("Reply-To:".$email);
+        $mail->add_header("Reply-To: ".$cliente_email);
         $mail->send();
 
+        echo $sucess;
+}
 ?>

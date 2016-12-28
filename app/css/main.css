@@ -1547,14 +1547,6 @@ li.menu-item {
   position: relative;
   margin: 0px; }
 
-@media (max-width: 575px) {
-  .section-header h2 {
-    font-size: 2.75em;
-    line-height: 1em; }
-  .section-header .p-subtle {
-    font-size: 1.6em;
-    line-height: 1.4em; } }
-
 .section-header h2 {
   font-size: 2.75em;
   line-height: 1.2em; }
@@ -1562,6 +1554,14 @@ li.menu-item {
 .section-header .p-subtle {
   font-size: 1.6em;
   line-height: 1.4em; }
+
+@media (max-width: 575px) {
+  .section-header h2 {
+    font-size: 2.45em;
+    line-height: 1em; }
+  .section-header .p-subtle {
+    font-size: 1.2em;
+    line-height: 1.0em; } }
 
 pre {
   color: #fff;
@@ -2035,7 +2035,7 @@ nav.nav-desktop {
   font-style: italic; }
   @media (max-width: 575px) {
     .box-btn {
-      font-size: 130%;
+      font-size: 110%;
       line-height: 150%; } }
 
 @media (min-width: 576px) and (max-width: 991px) {
