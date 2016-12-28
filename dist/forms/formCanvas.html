@@ -53,7 +53,7 @@
             <!-- INTRODUZIR AS SECTIONS ENTRE COMMENTS -->
             <section class="formulario">
                 <div class="container">
-                    <form id="EncForm" action="form-core.php" method="post" enctype="multipart/form-data">
+                    <form action="form-core.php" method="post" enctype="multipart/form-data">
                         <div class="row header-form">
                             <h3 class="blue">Faça a sua encomenda</h3>
                             <p>Existem dois tipos de <i>headers</i>, um dinâmico com carrousel de fundo e um estático com apenas uma imagem de fundo
@@ -103,75 +103,117 @@
                         </div>
 
                         <!-- FIM - Informações para Entrega  -->
-                        <!-- WINDOWS FORM  - medidas -->
-                        <div id="WINDOWS-Form" class="row upload-form">
-
+                        <!-- CANVAS FORM  - medidas -->
+                        <div id="Canvas-Form" class="row upload-form">
                             <fieldset>
                                 <legend>Medidas e Quantidades</legend>
-                                <div class="row">
-                                    <label>
-                                  <span class="bold small uppercase black col-xs-12 col-sm-6 col-md-8 ">
-                                    Qualquer Medida (Vertical ou Horizontal) <br />
-                                    Largura Máxima para Estores: 150 xm
-                                  </span>
-                                </label>
-                                </div>
-                                <div class="FieldsWrapper">
-                                    <div class="MedidaQuantidades row field" data-nfield="1">
-                                        <div class="col-xs-12 col-sm-4 col-md-4">
-                                            <label class="col-xs-12 col-sm-12 col-md-12 small" for="">
-                                          <span class="bold black">(ALTURA X LARGURA)</span>
-                                          </br>Medidas em cm
-                                        </label>
+                                <div class="FieldsWrapper_1">
+                                    <div class="MedidaQuantidade row field" data-nfield="1">
+                                        <div class="col-xs-6 col-sm-4 col-md-4 noSidePad-xs">
+                                            <label class="col-xs-12 col-sm-12 col-md-12 small noSidePad" for="">
+                                            <span class="bold black">(ALTURA X LARGURA)</span>
+                                            </br>Medidas em cm
+                                          </label>
 
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <input class="InputMedidas col-xs-12 col-sm-12 col-md-12" type="text" name="data[produto][0][medidas]" required placeholder="00 x 00 cm">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 noSidePad">
+                                                <select name="data[produto][0][medidas]" class="Canvas-Select select col-xs-12 col-sm-12 col-md-12">
+                                                 <option value="" disabled selected hidden>Escolha um...</option>
+                                              </select>
 
                                             </div>
                                         </div>
-                                        <div class="col-xs-12 col-sm-4 col-md-4 noSidePad-sm">
+                                        <div class="col-xs-6 col-sm-4 col-md-4 noSidePad">
                                             <label class="col-xs-12 col-sm-12 col-md-12 small" for="">
-                                        <span class="bold black uppercase">Cores Disponiveis</span>
-                                        </br>&nbsp;
-                                      </label>
+                                            <span class="bold black">QUANTIDADES</span>
+                                            </br>Nº de unidades
+                                          </label>
 
                                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <select name="data[produto][0][cor]" required class="Windows-Select col-xs-12 col-sm-12 col-md-12">
-                                             <option value="" disabled selected hidden>Escolha uma cor do vinil</option>
-
-                                          </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-4 col-md-4">
-                                            <label class="col-xs-12 col-sm-12 col-md-12 small" for="">
-                                              <span class="bold black uppercase">QUANTIDADES</span>
-                                              </br>Nº de unidades
-                                        </label>
-
-                                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <input name="data[produto][0][uni]" class="InputUni col-xs-5 col-sm-8 col-md-6" type="number" name="img-url" required placeholder="">
-                                                <div class="col-xs-5 col-sm-4 col-md-4">
+                                                <input class="col-xs-6 col-sm-4 col-md-4 InputUni" type="number" name="data[produto][0][uni]"  placeholder="">
+                                                <div class="col-xs-6 col-sm-4 col-md-4">
                                                     <a class="subtract icon hidden RmvField" title="Apagar" href="javascript:void(0)" data-nfield="1"></a>
                                                 </div>
+
                                             </div>
                                         </div>
-
                                     </div>
-                                    <div class="addButton row noSideMarg">
+                                    <div class="addButton row">
                                         <div class="col-xs-12 col-sm-4 col-md-4">
-                                            <a href="javascript:void(0)" class="btn action-btn small-btn" id="Add_Field_Button">Adicionar linha</a>
+                                            <a href="javascript:void(0)" class="btn action-btn small-btn" id="Add_Field_Button1">Adicionar linha</a>
 
                                         </div>
                                     </div>
                                 </div>
 
                             </fieldset>
-                        </div>
-                        <!--END BLINDS FORM  -->
+                            <fieldset>
+                                <legend>Formato Personalizado</legend>
+                                <div class="row">
+                                    <label>
+                                  <span class="bold small uppercase black col-xs-12 col-sm-6 col-md-8 ">
+                                    Qualquer Medida (Vertical ou Horizontal) <br />
+                                    Desde que uma das dimemões não ultrapasse os 140cm
+                                  </span>
+                                </label>
+                                </div>
+                                <div class="FieldsWrapper_2">
+                                  <div class="PerMedidaQuantidade row field" data-nfield="1">
+                                      <div class="col-xs-6 col-sm-4 col-md-4 noSidePad-xs">
+                                          <label class="col-xs-12 col-sm-12 col-md-12 noSidePad small" for="">
+                                      <span class="bold black">(ALTURA X LARGURA)</span>
+                                      </br>Medidas em cm
+                                    </label>
+
+                                          <div class="col-xs-12 col-sm-12 col-md-12 noSidePad">
+                                              <input class="InputPer col-xs-12 col-sm-12 col-md-12" type="text" name="data[produtoPer][0][medidas]" placeholder="00 x 00 cm">
+                                          </div>
+                                      </div>
+                                      <div class="col-xs-6 col-sm-4 col-md-4 noSidePad">
+                                          <label class="col-xs-12 col-sm-12 col-md-12 small" for="">
+                                          <span class="bold black">QUANTIDADES</span>
+                                          </br>Nº de unidades
+                                        </label>
+
+                                          <div class="col-xs-12 col-sm-12 col-md-12">
+                                              <input class="InputPerUni col-xs-7 col-sm-4 col-md-4" type="number" name="data[produtoPer][0][uni]" placeholder="">
+                                              <div class="col-xs-5 col-sm-4 col-md-4">
+                                                  <a class="subtract icon hidden RmvField" title="Apagar" href="javascript:void(0)" data-nfield="1"></a>
+                                              </div>
+
+                                          </div>
+                                      </div>
+                                  </div>
+                                    <div class="addButton row">
+                                        <div class="col-xs-12 col-sm-4 col-md-4">
+                                            <a href="javascript:void(0)" class="btn action-btn small-btn" id="Add_Field_Button2">Adicionar linha</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </fieldset>
+                </div>
+                <!--END CANVAS FORM  -->
 
                 <!-- INICIO - Upload e Termos de Utilzaçao  -->
 
                 <div class="row upload-form">
+                    <fieldset>
+                        <legend>A imagem a usar na decoração</legend>
+                        <div class="row field">
+                            <label class="col-xs-12 col-sm-4 col-md-3 noSidePad-xs noSideMarg-xs " for="">Imagem escolhida no <a href="#">banco de imagem</a></label>
+                            <input class="col-xs-12 col-sm-7 col-md-7" type="url" pattern="https?://.+" name="data[Img][img-url]" placeholder="Cole aqui o link copiado">
+                        </div>
+
+                        <div class="row field">
+                            <label class="col-xs-12 col-sm-4 col-md-3 noSidePad-xs noSideMarg-xs" for="">ou envie uma imagem da sua autoria</label>
+                            <div class="box">
+                                <input type="file" name="data" id="file-1" class="inputfile " data-multiple-caption="{count} ficheiros escolhidos"  />
+                                <label class="noSideMarg" for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Escolha um ficheiro&hellip;</span></label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div><div class="row upload-form">
                     <fieldset>
                         <legend>A imagem a usar na decoração</legend>
                         <div class="row field">
@@ -200,18 +242,12 @@
                     </fieldset>
                 </div>
 
-                <input type="hidden" name="data[form]" value="WINDOWS">
+                <input type="hidden" name="data[form]" value="CANVAS">
                 <!-- FIM - Upload e Termos de Utilzaçao  -->
                 <div class="row text-center" style="padding-top:15px;">
                     <button id="SubmitBtn" type="submit" class="btn action-btn">Orçamentar</button>
                 </div>
                 </form>
-
-                <div class="row sucess-form" style="height: 100vh;display:none;">
-                    <h3 class="blue">A sua encomenda foi enviada</h3>
-                      <p>Existem dois tipos de <i>headers</i>, um dinâmico com carrousel de fundo e um estático com apenas uma imagem de fundo
-                    </p>
-                </div>
         </div>
         </section>
 
@@ -225,136 +261,103 @@
     <!-- END MAIN STRUCTURE -->
 
     <!-- NÃO REMOVER ISSO O QUE ESTÁ ENTRE ESTES COMENTÁRIOS-->
-    <script src="../js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>
         window.jQuery || document.write('<script src="../js/vendor/jquery-1.12.0.min.js"><\/script>')
     </script>
 
     <script src="../js/main.js"></script>
     <script text="javascript">
-
-    $(function() {
-    // Get the form.
-    var form = $('#EncForm');
-
-    $(form).submit(function(event) {
-    // Stop the browser from submitting the form.
-    event.preventDefault();
-    var formData = new FormData($(this)[0]);
-
-       $.ajax({
-              type: "POST",
-              url: form.attr('action'),
-              data: formData, // serializes the form's elements.
-              async: false,
-              success: function(data)
-              {
-                  console.log(data);
-                  if(data==='1'){
-                    $('#EncForm').fadeOut('slow',function(){
-                      $('.sucess-form').fadeIn();
-                    });
-                  }else{
-                    alert('Aconteceu um problema com seu pedido, por favor tente outra x');
-                  }
-              },
-              cache: false,
-              contentType: false,
-              processData: false,
-              xhr: function() {  // Custom XMLHttpRequest
-                  var myXhr = $.ajaxSettings.xhr();
-                  if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
-                      myXhr.upload.addEventListener('progress', function () {
-                          // faz alguma coisa durante o progresso do upload
-                      }, false);
-                  }
-              return myXhr;
-              }
-            });
-          return false;
-    });
-
-});
-
-
         $(document).ready(function() {
-              WINDOWS_SELECT()
-            $('#Add_Field_Button').on("click", function(e) { //user click on remove text
+
+            CANVAS_SELECT();
+
+            $('#Add_Field_Button1').on("click", function(e) { //user click on remove text
                 e.preventDefault();
-                var n = $('.MedidaQuantidades').length;
-                var on=n;
+                var n = $('.MedidaQuantidade').length;
+                var on = n;
                 var nMedidas = 'data[produto]['+ on + '][medidas]';
-                var nUni = 'data[produto]['+ on + '][uni]';
-                var nCor = 'data[produto]['+ on + '][cor]';
+                var nUnid = 'data[produto]['+ on + '][uni]';
                 n++;
                 var id = Date.now();
-                var html = $('.MedidaQuantidades:first').clone();
+                var html = $('.MedidaQuantidade:first').clone();
                 html.attr("data-nfield", id);
-                html.find('.InputMedidas').attr('name',nMedidas).val('');
-                html.find('.Windows-Select').attr('name',nCor);
-                html.find('.InputUni').attr('name',nUni).val('');
+                html.find('.Canvas-Select').attr('name',nMedidas);
+                html.find('.InputUni').attr('name',nUnid).val('');
                 html.find('.subtract').attr("data-nfield", id);
-                $('.FieldsWrapper .addButton').fadeIn('slow').before(html); //add input box
+                $('.FieldsWrapper_1 .addButton').fadeIn('slow').before(html); //add input box
 
-                if (n > 1 && $('.MedidaQuantidades .subtract').hasClass('hidden')) {
-                    $('.MedidaQuantidades .subtract').removeClass('hidden');
+                if (n > 1 && $('.MedidaQuantidade .subtract').hasClass('hidden')) {
+                    $('.MedidaQuantidade .subtract').removeClass('hidden');
                 }
             });
 
-            $('.FieldsWrapper').on("click", "a.RmvField", function(e) { //user click on remove text
+            $('.FieldsWrapper_1').on("click", "a.RmvField", function(e) { //user click on remove text
                 e.preventDefault();
 
-                var el = '.MedidaQuantidades[data-nfield="' + $(this).data('nfield') + '"]'
+                var el = '.MedidaQuantidade[data-nfield="' + $(this).data('nfield') + '"]'
                 $(el).fadeOut(function() {
                     $(this).remove();
-                    n = $('.MedidaQuantidades').length;
+                    n = $('.MedidaQuantidade').length;
 
                     if (n < 2) {
-                        $('.MedidaQuantidades .subtract').addClass('hidden');
+                        $('.MedidaQuantidade .subtract').addClass('hidden');
                     }
                 });
 
-                // this is the id of the form
-                // $("#Form").submit(function(e) {
-                //
-                //   alert("work");
-                    // $.ajax({
-                    //        type: "POST",
-                    //        url: $("#Form").attr('action'),
-                    //        data: $("#Form").serialize(), // serializes the form's elements.
-                    //        success: function(data)
-                    //        {
-                    //            alert(data); // show response from the php script.
-                    //        }
-                    //      });
-                    //
-                    // e.preventDefault(); // avoid to execute the actual submit of the form.
-                // });
-
-
-
-                // $('#SubmitBtn').on("click", function(event) {
-                //   event.preventDefault();
-                //         console.log($("#Form").serialize());
-                //
-                // });
-
-
               });
 
-              function WINDOWS_SELECT() {
-                  var $canvas = $('.Windows-Select');
-                  if ($canvas[0]) {
-                      $.getJSON("../jsonData/windows-form.json", function(data) {
-                          $.each(data, function(index, value) {
-                              $canvas.append('<option value="' + value + '">' + index + '</option>');
-                          });
-                      });
-                  }
-              }
+              $('#Add_Field_Button2').on("click", function(e) {
+                e.preventDefault();
+
+                var n = $('.PerMedidaQuantidade').length;
+                var on = n;
+                var nMedidas = 'data[produtoPer]['+ on + '][medidas]';
+                var nUnid = 'data[produtoPer]['+ on + '][uni]';
+                n++;
+                var id = Date.now();
+                var html = $('.PerMedidaQuantidade:first').clone();
+                html.attr("data-nfield", id);
+                html.find('.InputPer').attr('name',nMedidas).val('');
+                html.find('.InputPerUni').attr('name',nUnid).val('');
+
+                html.find('.subtract').attr("data-nfield", id);
+                $('.FieldsWrapper_2 .addButton').fadeIn('slow').before(html); //add input box
+
+                if (n > 1 && $('.PerMedidaQuantidade .subtract').hasClass('hidden')) {
+                    $('.PerMedidaQuantidade .subtract').removeClass('hidden');
+                }
+              });
+
+              $('.FieldsWrapper_2').on("click", "a.RmvField", function(e) { //user click on remove text
+                  e.preventDefault();
+
+                  var el = '.PerMedidaQuantidade[data-nfield="' + $(this).data('nfield') + '"]'
+                  $(el).fadeOut(function() {
+                      $(this).remove();
+                      n = $('.PerMedidaQuantidade').length;
+
+                      if (n < 2) {
+                          $('.PerMedidaQuantidade .subtract').addClass('hidden');
+                      }
+                  });
+
+                });
+
         });
 
+        // Popular o Select do Canvas
 
+        function CANVAS_SELECT() {
+            var $canvas = $('.Canvas-Select');
+            if ($canvas[0]) {
+                $.getJSON("../jsonData/canvas-form.json", function(data) {
+                    $.each(data, function(index, value) {
+                        $canvas.append('<option value="' + value + '">' + index + '</option>');
+                    });
+                });
+            }
+        }
     </script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

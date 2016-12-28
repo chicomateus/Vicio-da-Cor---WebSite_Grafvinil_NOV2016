@@ -53,7 +53,7 @@
             <!-- INTRODUZIR AS SECTIONS ENTRE COMMENTS -->
             <section class="formulario">
                 <div class="container">
-                    <form id="EncForm" action="form-core.php" method="post" enctype="multipart/form-data">
+                    <form action="form-core.php" method="post" enctype="multipart/form-data">
                         <div class="row header-form">
                             <h3 class="blue">Faça a sua encomenda</h3>
                             <p>Existem dois tipos de <i>headers</i>, um dinâmico com carrousel de fundo e um estático com apenas uma imagem de fundo
@@ -103,8 +103,8 @@
                         </div>
 
                         <!-- FIM - Informações para Entrega  -->
-                        <!-- WINDOWS FORM  - medidas -->
-                        <div id="WINDOWS-Form" class="row upload-form">
+                        <!-- BLINDS FORM  - medidas -->
+                        <div id="Blinds-Form" class="row upload-form">
 
                             <fieldset>
                                 <legend>Medidas e Quantidades</legend>
@@ -131,25 +131,27 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-4 col-md-4 noSidePad-sm">
                                             <label class="col-xs-12 col-sm-12 col-md-12 small" for="">
-                                        <span class="bold black uppercase">Cores Disponiveis</span>
-                                        </br>&nbsp;
+                                        <span class="bold black">TIPO DE APLICAÇÃO</span>
+                                        </br>Interna ou à face da parede
                                       </label>
 
                                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <select name="data[produto][0][cor]" required class="Windows-Select col-xs-12 col-sm-12 col-md-12">
-                                             <option value="" disabled selected hidden>Escolha uma cor do vinil</option>
+                                                <select name="data[produto][0][aplica]" required class="Blinds-Select col-xs-12 col-sm-12 col-md-12">
+                                             <option value="" disabled selected hidden>Escolha a aplicação</option>
+                                             <option value="interno">Interno</option>
+                                             <option value="a-face">À Face</option>
 
                                           </select>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-4 col-md-4">
                                             <label class="col-xs-12 col-sm-12 col-md-12 small" for="">
-                                              <span class="bold black uppercase">QUANTIDADES</span>
+                                              <span class="bold black">QUANTIDADES</span>
                                               </br>Nº de unidades
                                         </label>
 
                                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <input name="data[produto][0][uni]" class="InputUni col-xs-5 col-sm-8 col-md-6" type="number" name="img-url" required placeholder="">
+                                                <input class=" InputUni col-xs-5 col-sm-8 col-md-6" type="number" name="data[produto][0][uni]" required placeholder="">
                                                 <div class="col-xs-5 col-sm-4 col-md-4">
                                                     <a class="subtract icon hidden RmvField" title="Apagar" href="javascript:void(0)" data-nfield="1"></a>
                                                 </div>
@@ -200,18 +202,12 @@
                     </fieldset>
                 </div>
 
-                <input type="hidden" name="data[form]" value="WINDOWS">
+                <input type="hidden" name="data[form]" value="BLINDS">
                 <!-- FIM - Upload e Termos de Utilzaçao  -->
                 <div class="row text-center" style="padding-top:15px;">
                     <button id="SubmitBtn" type="submit" class="btn action-btn">Orçamentar</button>
                 </div>
                 </form>
-
-                <div class="row sucess-form" style="height: 100vh;display:none;">
-                    <h3 class="blue">A sua encomenda foi enviada</h3>
-                      <p>Existem dois tipos de <i>headers</i>, um dinâmico com carrousel de fundo e um estático com apenas uma imagem de fundo
-                    </p>
-                </div>
         </div>
         </section>
 
@@ -225,73 +221,28 @@
     <!-- END MAIN STRUCTURE -->
 
     <!-- NÃO REMOVER ISSO O QUE ESTÁ ENTRE ESTES COMENTÁRIOS-->
-    <script src="../js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>
         window.jQuery || document.write('<script src="../js/vendor/jquery-1.12.0.min.js"><\/script>')
     </script>
 
     <script src="../js/main.js"></script>
     <script text="javascript">
-
-    $(function() {
-    // Get the form.
-    var form = $('#EncForm');
-
-    $(form).submit(function(event) {
-    // Stop the browser from submitting the form.
-    event.preventDefault();
-    var formData = new FormData($(this)[0]);
-
-       $.ajax({
-              type: "POST",
-              url: form.attr('action'),
-              data: formData, // serializes the form's elements.
-              async: false,
-              success: function(data)
-              {
-                  console.log(data);
-                  if(data==='1'){
-                    $('#EncForm').fadeOut('slow',function(){
-                      $('.sucess-form').fadeIn();
-                    });
-                  }else{
-                    alert('Aconteceu um problema com seu pedido, por favor tente outra x');
-                  }
-              },
-              cache: false,
-              contentType: false,
-              processData: false,
-              xhr: function() {  // Custom XMLHttpRequest
-                  var myXhr = $.ajaxSettings.xhr();
-                  if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
-                      myXhr.upload.addEventListener('progress', function () {
-                          // faz alguma coisa durante o progresso do upload
-                      }, false);
-                  }
-              return myXhr;
-              }
-            });
-          return false;
-    });
-
-});
-
-
         $(document).ready(function() {
-              WINDOWS_SELECT()
+
             $('#Add_Field_Button').on("click", function(e) { //user click on remove text
                 e.preventDefault();
                 var n = $('.MedidaQuantidades').length;
                 var on=n;
                 var nMedidas = 'data[produto]['+ on + '][medidas]';
                 var nUni = 'data[produto]['+ on + '][uni]';
-                var nCor = 'data[produto]['+ on + '][cor]';
+                var nAplic = 'data[produto]['+ on + '][aplica]';
                 n++;
                 var id = Date.now();
                 var html = $('.MedidaQuantidades:first').clone();
                 html.attr("data-nfield", id);
                 html.find('.InputMedidas').attr('name',nMedidas).val('');
-                html.find('.Windows-Select').attr('name',nCor);
+                html.find('.Blinds-Select').attr('name',nAplic);
                 html.find('.InputUni').attr('name',nUni).val('');
                 html.find('.subtract').attr("data-nfield", id);
                 $('.FieldsWrapper .addButton').fadeIn('slow').before(html); //add input box
@@ -314,44 +265,9 @@
                     }
                 });
 
-                // this is the id of the form
-                // $("#Form").submit(function(e) {
-                //
-                //   alert("work");
-                    // $.ajax({
-                    //        type: "POST",
-                    //        url: $("#Form").attr('action'),
-                    //        data: $("#Form").serialize(), // serializes the form's elements.
-                    //        success: function(data)
-                    //        {
-                    //            alert(data); // show response from the php script.
-                    //        }
-                    //      });
-                    //
-                    // e.preventDefault(); // avoid to execute the actual submit of the form.
-                // });
-
-
-
-                // $('#SubmitBtn').on("click", function(event) {
-                //   event.preventDefault();
-                //         console.log($("#Form").serialize());
-                //
-                // });
-
-
               });
 
-              function WINDOWS_SELECT() {
-                  var $canvas = $('.Windows-Select');
-                  if ($canvas[0]) {
-                      $.getJSON("../jsonData/windows-form.json", function(data) {
-                          $.each(data, function(index, value) {
-                              $canvas.append('<option value="' + value + '">' + index + '</option>');
-                          });
-                      });
-                  }
-              }
+
         });
 
 

@@ -53,7 +53,7 @@
             <!-- INTRODUZIR AS SECTIONS ENTRE COMMENTS -->
             <section class="formulario">
                 <div class="container">
-                    <form id="EncForm" action="form-core.php" method="post" enctype="multipart/form-data">
+                    <form action="form-core.php" method="post" enctype="multipart/form-data">
                         <div class="row header-form">
                             <h3 class="blue">Faça a sua encomenda</h3>
                             <p>Existem dois tipos de <i>headers</i>, um dinâmico com carrousel de fundo e um estático com apenas uma imagem de fundo
@@ -103,53 +103,53 @@
                         </div>
 
                         <!-- FIM - Informações para Entrega  -->
-                        <!-- WINDOWS FORM  - medidas -->
-                        <div id="WINDOWS-Form" class="row upload-form">
+                        <!-- Tshirt FORM  - medidas -->
+                        <div id="Tshirt-Form" class="row upload-form">
 
                             <fieldset>
                                 <legend>Medidas e Quantidades</legend>
                                 <div class="row">
                                     <label>
-                                  <span class="bold small uppercase black col-xs-12 col-sm-6 col-md-8 ">
-                                    Qualquer Medida (Vertical ou Horizontal) <br />
-                                    Largura Máxima para Estores: 150 xm
-                                  </span>
-                                </label>
+                                      <span class="bold small uppercase black col-xs-12 col-sm-8 col-md-8 ">
+                                        Qualquer Medida (Vertical ou Horizontal) <br />
+                                        Largura Máxima para Estores: 150 xm
+                                      </span>
+                                    </label>
                                 </div>
                                 <div class="FieldsWrapper">
                                     <div class="MedidaQuantidades row field" data-nfield="1">
-                                        <div class="col-xs-12 col-sm-4 col-md-4">
+                                        <div class="col-xs-12 col-sm-4 col-md-4 noSidePad">
                                             <label class="col-xs-12 col-sm-12 col-md-12 small" for="">
-                                          <span class="bold black">(ALTURA X LARGURA)</span>
-                                          </br>Medidas em cm
-                                        </label>
+                                              <span class="bold black">Tamanho da Tshirt</span>
+                                                </br>Para adultos e crianças
+                                            </label>
 
                                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <input class="InputMedidas col-xs-12 col-sm-12 col-md-12" type="text" name="data[produto][0][medidas]" required placeholder="00 x 00 cm">
-
+                                                <select name="data[produto][0][medidas]" required class="Tshirt-Size-Select col-xs-12 col-sm-12 col-md-12">
+                                                   <option value="" disabled selected hidden>Escolha a Tamanho</option>
+                                                </select>
                                             </div>
                                         </div>
-                                        <div class="col-xs-12 col-sm-4 col-md-4 noSidePad-sm">
+                                        <div class="col-xs-12 col-sm-4 col-md-4 noSidePad">
                                             <label class="col-xs-12 col-sm-12 col-md-12 small" for="">
-                                        <span class="bold black uppercase">Cores Disponiveis</span>
-                                        </br>&nbsp;
-                                      </label>
+                                            <span class="bold black uppercase">Cores Disponiveis</span>
+                                                        </br>&nbsp;
+                                            </label>
 
                                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <select name="data[produto][0][cor]" required class="Windows-Select col-xs-12 col-sm-12 col-md-12">
-                                             <option value="" disabled selected hidden>Escolha uma cor do vinil</option>
-
-                                          </select>
+                                                <select name="data[produto][0][cor]"  required class="Tshirt-Color-Select col-xs-12 col-sm-12 col-md-12">
+                                                   <option value="" disabled selected hidden>Escolha a Cor</option>
+                                                </select>
                                             </div>
                                         </div>
-                                        <div class="col-xs-12 col-sm-4 col-md-4">
+                                        <div class="col-xs-12 col-sm-4 col-md-4 noSidePad">
                                             <label class="col-xs-12 col-sm-12 col-md-12 small" for="">
-                                              <span class="bold black uppercase">QUANTIDADES</span>
-                                              </br>Nº de unidades
-                                        </label>
+                                                  <span class="bold black">QUANTIDADES</span>
+                                                  </br>Nº de unidades
+                                            </label>
 
                                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <input name="data[produto][0][uni]" class="InputUni col-xs-5 col-sm-8 col-md-6" type="number" name="img-url" required placeholder="">
+                                                <input class="InputUni col-xs-5 col-sm-8 col-md-6" type="number" name="data[produto][0][uni]"  required placeholder="">
                                                 <div class="col-xs-5 col-sm-4 col-md-4">
                                                     <a class="subtract icon hidden RmvField" title="Apagar" href="javascript:void(0)" data-nfield="1"></a>
                                                 </div>
@@ -165,120 +165,71 @@
                                     </div>
                                 </div>
 
+
+
                             </fieldset>
                         </div>
-                        <!--END BLINDS FORM  -->
+                        <!--END Tshirt FORM  -->
 
-                <!-- INICIO - Upload e Termos de Utilzaçao  -->
+                        <!-- INICIO - Upload e Termos de Utilzaçao  -->
 
-                <div class="row upload-form">
-                    <fieldset>
-                        <legend>A imagem a usar na decoração</legend>
-                        <div class="row field">
-                            <label class="col-xs-12 col-sm-4 col-md-3 noSidePad-xs noSideMarg-xs " for="">Imagem escolhida no <a href="#">banco de imagem</a></label>
-                            <input class="col-xs-12 col-sm-7 col-md-7" type="url" pattern="https?://.+" name="data[Img][img-url]" placeholder="Cole aqui o link copiado">
+                        <div class="row upload-form">
+                            <fieldset>
+                                <legend>A imagem a usar na decoração</legend>
+                                <div class="row field">
+                                    <label class="col-xs-12 col-sm-4 col-md-3 noSidePad-xs noSideMarg-xs " for="">Imagem escolhida no <a href="#">banco de imagem</a></label>
+                                    <input class="col-xs-12 col-sm-7 col-md-7" type="url" pattern="https?://.+" name="data[Img][img-url]" placeholder="Cole aqui o link copiado">
+                                </div>
+
+                                <div class="row field">
+                                    <label class="col-xs-12 col-sm-4 col-md-3 noSidePad-xs noSideMarg-xs" for="">ou envie uma imagem da sua autoria</label>
+                                    <div class="box">
+                                        <input type="file" name="data" id="file-1" class="inputfile " data-multiple-caption="{count} ficheiros escolhidos"  />
+                                        <label class="noSideMarg" for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Escolha um ficheiro&hellip;</span></label>
+                                    </div>
+                                </div>
+                            </fieldset>
                         </div>
 
-                        <div class="row field">
-                            <label class="col-xs-12 col-sm-4 col-md-3 noSidePad-xs noSideMarg-xs" for="">ou envie uma imagem da sua autoria</label>
-                            <div class="box">
-                                <input type="file" name="data" id="file-1" class="inputfile " data-multiple-caption="{count} ficheiros escolhidos"  />
-                                <label class="noSideMarg" for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Escolha um ficheiro&hellip;</span></label>
-                            </div>
+                        <div class="row footer-form">
+                            <fieldset>
+                                <legend>Finalizar encomenda</legend>
+                                <p>Todos os dados pessoais e morada solicitados são obrigatórios. Após encomendar receberá um e-mail de resposta com a simulação da imagem no espaço a decorar, o valor do orçamento para o trabalho e o NIB para o qual
+                                    deverá fazer a transferência para validara encomenda.</p>
+                                <p>
+                                    Ao solicitar este orçamento aceita os <a href="#"><strong>Termos e Condiçoes</strong></a> comerciais deste serviço.
+                                </p>
+                            </fieldset>
                         </div>
-                    </fieldset>
+
+                        <input type="hidden" name="data[form]" value="TSHIRT">
+                        <!-- FIM - Upload e Termos de Utilzaçao  -->
+                        <div class="row text-center" style="padding-top:15px;">
+                            <button id="SubmitBtn" type="submit" class="btn action-btn">Orçamentar</button>
+                        </div>
+                    </form>
                 </div>
+            </section>
 
-                <div class="row footer-form">
-                    <fieldset>
-                        <legend>Finalizar encomenda</legend>
-                        <p>Todos os dados pessoais e morada solicitados são obrigatórios. Após encomendar receberá um e-mail de resposta com a simulação da imagem no espaço a decorar, o valor do orçamento para o trabalho e o NIB para o qual deverá
-                            fazer a transferência para validara encomenda.</p>
-                        <p>
-                            Ao solicitar este orçamento aceita os <a href="#"><strong>Termos e Condiçoes</strong></a> comerciais deste serviço.
-                        </p>
-                    </fieldset>
-                </div>
-
-                <input type="hidden" name="data[form]" value="WINDOWS">
-                <!-- FIM - Upload e Termos de Utilzaçao  -->
-                <div class="row text-center" style="padding-top:15px;">
-                    <button id="SubmitBtn" type="submit" class="btn action-btn">Orçamentar</button>
-                </div>
-                </form>
-
-                <div class="row sucess-form" style="height: 100vh;display:none;">
-                    <h3 class="blue">A sua encomenda foi enviada</h3>
-                      <p>Existem dois tipos de <i>headers</i>, um dinâmico com carrousel de fundo e um estático com apenas uma imagem de fundo
-                    </p>
-                </div>
-        </div>
-        </section>
-
-        <!-- INTRODUZIR AS SECTIONS ENTRE COMMENTS -->
+            <!-- INTRODUZIR AS SECTIONS ENTRE COMMENTS -->
 
 
-        <!-- NÃO REMOVER ISSO O QUE ESTÁ ENTRE ESTES COMENTÁRIOS-->
+            <!-- NÃO REMOVER ISSO O QUE ESTÁ ENTRE ESTES COMENTÁRIOS-->
         </div>
     </main>
     <!-- NÃO REMOVER ISSO O QUE ESTÁ ENTRE ESTES COMENTÁRIOS-->
     <!-- END MAIN STRUCTURE -->
 
     <!-- NÃO REMOVER ISSO O QUE ESTÁ ENTRE ESTES COMENTÁRIOS-->
-    <script src="../js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <script>
         window.jQuery || document.write('<script src="../js/vendor/jquery-1.12.0.min.js"><\/script>')
     </script>
 
     <script src="../js/main.js"></script>
     <script text="javascript">
-
-    $(function() {
-    // Get the form.
-    var form = $('#EncForm');
-
-    $(form).submit(function(event) {
-    // Stop the browser from submitting the form.
-    event.preventDefault();
-    var formData = new FormData($(this)[0]);
-
-       $.ajax({
-              type: "POST",
-              url: form.attr('action'),
-              data: formData, // serializes the form's elements.
-              async: false,
-              success: function(data)
-              {
-                  console.log(data);
-                  if(data==='1'){
-                    $('#EncForm').fadeOut('slow',function(){
-                      $('.sucess-form').fadeIn();
-                    });
-                  }else{
-                    alert('Aconteceu um problema com seu pedido, por favor tente outra x');
-                  }
-              },
-              cache: false,
-              contentType: false,
-              processData: false,
-              xhr: function() {  // Custom XMLHttpRequest
-                  var myXhr = $.ajaxSettings.xhr();
-                  if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
-                      myXhr.upload.addEventListener('progress', function () {
-                          // faz alguma coisa durante o progresso do upload
-                      }, false);
-                  }
-              return myXhr;
-              }
-            });
-          return false;
-    });
-
-});
-
-
         $(document).ready(function() {
-              WINDOWS_SELECT()
+            F_TSHIRT_FORM();
             $('#Add_Field_Button').on("click", function(e) { //user click on remove text
                 e.preventDefault();
                 var n = $('.MedidaQuantidades').length;
@@ -290,8 +241,8 @@
                 var id = Date.now();
                 var html = $('.MedidaQuantidades:first').clone();
                 html.attr("data-nfield", id);
-                html.find('.InputMedidas').attr('name',nMedidas).val('');
-                html.find('.Windows-Select').attr('name',nCor);
+                html.find('.Tshirt-Size-Select').attr('name',nMedidas);
+                html.find('.Tshirt-Color-Select').attr('name',nCor);
                 html.find('.InputUni').attr('name',nUni).val('');
                 html.find('.subtract').attr("data-nfield", id);
                 $('.FieldsWrapper .addButton').fadeIn('slow').before(html); //add input box
@@ -314,47 +265,38 @@
                     }
                 });
 
-                // this is the id of the form
-                // $("#Form").submit(function(e) {
-                //
-                //   alert("work");
-                    // $.ajax({
-                    //        type: "POST",
-                    //        url: $("#Form").attr('action'),
-                    //        data: $("#Form").serialize(), // serializes the form's elements.
-                    //        success: function(data)
-                    //        {
-                    //            alert(data); // show response from the php script.
-                    //        }
-                    //      });
-                    //
-                    // e.preventDefault(); // avoid to execute the actual submit of the form.
-                // });
+            });
 
 
-
-                // $('#SubmitBtn').on("click", function(event) {
-                //   event.preventDefault();
-                //         console.log($("#Form").serialize());
-                //
-                // });
-
-
-              });
-
-              function WINDOWS_SELECT() {
-                  var $canvas = $('.Windows-Select');
-                  if ($canvas[0]) {
-                      $.getJSON("../jsonData/windows-form.json", function(data) {
-                          $.each(data, function(index, value) {
-                              $canvas.append('<option value="' + value + '">' + index + '</option>');
-                          });
-                      });
-                  }
-              }
         });
 
+        function F_TSHIRT_FORM() {
+            var $selColor = $('.Tshirt-Color-Select');
+            var $selSize = $('.Tshirt-Size-Select');
+            var html = "";
+            //if ($select[0]) {
+            $.getJSON("../jsonData/tshirt-form.json", function(data) {
+                console.log(data);
+                $.each(data, function(index, value) {
+                    if (index === "Sizes") {
+                        $.each(value, function(key, val) {
+                            console.log(key);
+                            html += '<optgroup label="' + key + '"></optgroup>';
+                            $.each(val, function(n, v) {
+                                html += "<option>" + v + "</option>";
+                            });
+                        });
+                        $selSize.append(html);
+                    } else {
 
+                        $.each(value, function(key, val) {
+                            $selColor.append("<option>" + val + "</option>");
+                        });
+                    }
+                });
+            });
+            //}
+        }
     </script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

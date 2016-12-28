@@ -1,0 +1,24 @@
+
+{
+  "Cores":{
+    "Vermelho": "Vermelho",
+  	"Vermelho Escuro": "Vermelho Escuro",
+  	"Verde": "Verde",
+  	"Azul": "Azul",
+    "Violeta": "Violeta"
+  },
+  "Sizes":{
+    "Adultos":{
+      "S": "S",
+      "M": "M",
+      "L": "L",
+      "XL": "XL"
+    },
+    "Crianças":{
+      "1/2 anos": "1/2 anos",
+      "3/4 anos": "3/4 anos",
+      "5/6 anos": "5/6 anos",
+      "7/8 anos": "7/8 anos"
+    }
+  }
+}
