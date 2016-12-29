@@ -53,7 +53,7 @@
             <!-- INTRODUZIR AS SECTIONS ENTRE COMMENTS -->
             <section class="formulario">
                 <div class="container">
-                    <form action="form-core.php" method="post" enctype="multipart/form-data">
+                    <form id="EncForm" action="form-core.php" method="post" enctype="multipart/form-data">
                         <div class="row header-form">
                             <h3 class="blue">Faça a sua encomenda</h3>
                             <p>Existem dois tipos de <i>headers</i>, um dinâmico com carrousel de fundo e um estático com apenas uma imagem de fundo
@@ -226,6 +226,12 @@
                     <button id="SubmitBtn" type="submit" class="btn action-btn">Orçamentar</button>
                 </div>
                 </form>
+                <!-- SUCESS MESSAGE -->
+                                <div class="row sucess-form" style="height: 100vh;display:none;">
+                                    <h3 class="blue">A sua encomenda foi enviada</h3>
+                                      <p>Existem dois tipos de <i>headers</i>, um dinâmico com carrousel de fundo e um estático com apenas uma imagem de fundo
+                                    </p>
+                                </div>
         </div>
         </section>
 

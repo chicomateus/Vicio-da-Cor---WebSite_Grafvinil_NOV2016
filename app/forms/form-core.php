@@ -86,7 +86,7 @@ if (isset($_POST['data']['form'])){
     $html_body.= $form->prepare_html_personalData($_POST['data']['main']);
     $html_body.= $html;
 
-    $html_body.= $form->prepare_html_img($_POST['data']['Img'],$_FILES);
+    $html_body.= $form->prepare_html_img($_POST['data']['Img'],$_FILES['data']);
 
     $mail   = new Mail($to, $from, $subject, $html_body);
 
@@ -109,7 +109,7 @@ if (isset($_POST['data']['form'])){
         $html_body.= $form->prepare_html_personalData($_POST['data']['main']);
         $html_body.= $html;
 
-        $html_body.= $form->prepare_html_img($_POST['data']['Img'],$_FILES);
+        $html_body.= $form->prepare_html_img($_POST['data']['Img'],$_FILES['data']);
 
         $mail   = new Mail($to, $from, $subject, $html_body);
 

@@ -7,10 +7,10 @@
 
     public function prepare_html_img($data,$files){
       if($files['data']['error']==0){
-            $html.= "<h3>Imagem Em Anexo</h3>";
+            $html= "<h3>Imagem Em Anexo</h3>";
       }
       if (!empty($data['img-url'])) {
-          $html.= '<h3>O URL da Imagem</h3>
+          $html= '<h3>O URL da Imagem</h3>
               <a href="'.$data['img-url'].'" target="_blank">'.$data['img-url'].'</a>';
       }
 
@@ -49,7 +49,7 @@
     }
 
     public function prepare_form_Wall($data){
-      $error ="";
+      $html="";
       if(isset($data['PUniforme'])){
           $P =$data['PUniforme'];
           if(!empty($P['altura']) && !empty($P['comprimento'])){
@@ -68,8 +68,9 @@
 
       if(isset($data['Pcomplexa'])){
           $P =$data['Pcomplexa'];
-
-          if(!empty(array_filter($P['Alturas'])) && !empty(array_filter($P['Comprimentos']))){
+          $a = array_filter($P['Alturas']);
+          $b = array_filter($P['Comprimentos']);
+          if(!empty($a) & !empty($b)){
             $html.='<hr /><h3>Parede Complexa</h3>';
 
             $html.='<h4> - Alturas</h4>';
@@ -90,8 +91,6 @@
               </p>';
               $n2++;
           }
-         }else{
-           $error.= "<p>Não há <strong>alturas</strong> e <strong>comprimentos</strong> definidos</p>";
          }
       }
       if(!empty($data['Observacao'])){
@@ -100,16 +99,16 @@
       }
 
 
-      $return = array(
-        'html' =>$html ,
-        'erros' =>$error
-        );
-      return $return;
+
+            $return = array(
+              'html' =>$html      );
+            return $return;
     }
 
     public function prepare_form_Canvas($data){
-      $html.='<h3>Medidas dos Canvas</h3>';
-      if(!empty(array_filter($data['produto']))){
+      $html='<h3>Medidas dos Canvas</h3>';
+      $a = array_filter($data['produto']);
+      if(!empty($a)){
         foreach ($data['produto'] as $value) {
           $html.='<p>
               <strong> Medida: </strong>
@@ -121,7 +120,8 @@
               </p>';
         }
       }
-      if(!empty(array_filter($data['produtoPer']))){
+      $b = array_filter($data['produtoPer']);
+      if(!empty($b)){
         foreach ($data['produtoPer'] as $value) {
           $html.='<p>
               <strong> Medida: </strong>
@@ -136,17 +136,17 @@
 
 
       $return = array(
-        'html' =>$html ,
-        'erros' =>$error
-        );
+        'html' =>$html      );
       return $return;
     }
 
 
     public function prepare_form_3D($data){
 
-        $html.='<h3>Medidas dos Impressão 3D</h3>';
-        if(!empty(array_filter($data['produto']))){
+        $html='<h3>Medidas dos Impressão 3D</h3>';
+
+        $a = array_filter($data['produto']);
+        if(!empty($a)){
           $N=1;
           foreach ($data['produto'] as $value) {
             $html.='<p><h5>Pedido Nº'.$N.' </h5>
@@ -154,7 +154,7 @@
                 <cite>'.$value['medidas'].'</cite>
                 <br />
                 <strong> Cor do PVC: </strong>
-                <cite>'.$value['Cor'].'</cite>
+                <cite>'.$value['cor'].'</cite>
                 <br />
                 <strong> Espessura do PVC: </strong>
                 <cite>'.$value['espessura'].'</cite>
@@ -174,14 +174,14 @@
 
         $return = array(
           'html' =>$html ,
-          'erros' =>$error
           );
         return $return;
       }
 
     public function prepare_form_Blinds($data){
-      $html.='<h3>Medidas das Blinds</h3>';
-      if(!empty(array_filter($data['produto']))){
+      $html='<h3>Medidas das Blinds</h3>';
+      $a = array_filter($data['produto']);
+      if(!empty($a)){
         $N=1;
         foreach ($data['produto'] as $value) {
           $html.='<p><h5>Pedido Nº'.$N.' </h5>
@@ -197,17 +197,17 @@
               $N++;
         }
       }
-      $return = array(
-        'html' =>$html ,
-        'erros' =>$error
-        );
-      return $return;
+
+            $return = array(
+              'html' =>$html      );
+            return $return;
     }
 
 
     public function prepare_form_Tshirt($data){
-      $html.='<h3>Ordem de Pedidos de T-shirts </h3>';
-      if(!empty(array_filter($data['produto']))){
+      $html='<h3>Ordem de Pedidos de T-shirts </h3>';
+      $a = array_filter($data['produto']);
+      if(!empty($a)){
         $N=1;
         foreach ($data['produto'] as $value) {
           $html.='<p><h5>Pedido Nº'.$N.' </h5>
@@ -223,16 +223,16 @@
               $N++;
         }
       }
-      $return = array(
-        'html' =>$html ,
-        'erros' =>$error
-        );
-      return $return;
+
+            $return = array(
+              'html' =>$html      );
+            return $return;
     }
 
     public function prepare_form_Window($data){
-      $html.='<h3>Ordem de Pedidos - Vinil Windows</h3>';
-      if(!empty(array_filter($data['produto']))){
+      $html='<h3>Ordem de Pedidos - Vinil Windows</h3>';
+      $a = array_filter($data['produto']);
+      if(!empty($a)){
         $N=1;
         foreach ($data['produto'] as $value) {
           $html.='<p><h5>Pedido Nº'.$N.' </h5>
@@ -248,11 +248,10 @@
               $N++;
         }
       }
-      $return = array(
-        'html' =>$html ,
-        'erros' =>$error
-        );
-      return $return;
+
+            $return = array(
+              'html' =>$html      );
+            return $return;
     }
     /**
     *   UPLOAD de IMAGEM

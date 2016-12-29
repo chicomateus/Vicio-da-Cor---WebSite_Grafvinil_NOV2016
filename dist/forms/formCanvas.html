@@ -53,7 +53,7 @@
             <!-- INTRODUZIR AS SECTIONS ENTRE COMMENTS -->
             <section class="formulario">
                 <div class="container">
-                    <form action="form-core.php" method="post" enctype="multipart/form-data">
+                    <form id ="EncForm" action="form-core.php" method="post" enctype="multipart/form-data">
                         <div class="row header-form">
                             <h3 class="blue">Faça a sua encomenda</h3>
                             <p>Existem dois tipos de <i>headers</i>, um dinâmico com carrousel de fundo e um estático com apenas uma imagem de fundo
@@ -109,7 +109,7 @@
                                 <legend>Medidas e Quantidades</legend>
                                 <div class="FieldsWrapper_1">
                                     <div class="MedidaQuantidade row field" data-nfield="1">
-                                        <div class="col-xs-6 col-sm-4 col-md-4 noSidePad-xs">
+                                        <div class="col-xs-6 col-sm-8 col-md-8 noSidePad-xs">
                                             <label class="col-xs-12 col-sm-12 col-md-12 small noSidePad" for="">
                                             <span class="bold black">(ALTURA X LARGURA)</span>
                                             </br>Medidas em cm
@@ -129,7 +129,7 @@
                                           </label>
 
                                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                                <input class="col-xs-6 col-sm-4 col-md-4 InputUni" type="number" name="data[produto][0][uni]"  placeholder="">
+                                                <input class="col-xs-6 col-sm-8 col-md-8 InputUni" type="number" name="data[produto][0][uni]"  placeholder="">
                                                 <div class="col-xs-6 col-sm-4 col-md-4">
                                                     <a class="subtract icon hidden RmvField" title="Apagar" href="javascript:void(0)" data-nfield="1"></a>
                                                 </div>
@@ -158,7 +158,7 @@
                                 </div>
                                 <div class="FieldsWrapper_2">
                                   <div class="PerMedidaQuantidade row field" data-nfield="1">
-                                      <div class="col-xs-6 col-sm-4 col-md-4 noSidePad-xs">
+                                      <div class="col-xs-6 col-sm-8 col-md-8 noSidePad-xs">
                                           <label class="col-xs-12 col-sm-12 col-md-12 noSidePad small" for="">
                                       <span class="bold black">(ALTURA X LARGURA)</span>
                                       </br>Medidas em cm
@@ -175,8 +175,8 @@
                                         </label>
 
                                           <div class="col-xs-12 col-sm-12 col-md-12">
-                                              <input class="InputPerUni col-xs-7 col-sm-4 col-md-4" type="number" name="data[produtoPer][0][uni]" placeholder="">
-                                              <div class="col-xs-5 col-sm-4 col-md-4">
+                                              <input class="InputPerUni col-xs-6 col-sm-8 col-md-8" type="number" name="data[produtoPer][0][uni]" placeholder="">
+                                              <div class="col-xs-6 col-sm-4 col-md-4">
                                                   <a class="subtract icon hidden RmvField" title="Apagar" href="javascript:void(0)" data-nfield="1"></a>
                                               </div>
 
@@ -197,39 +197,24 @@
 
                 <!-- INICIO - Upload e Termos de Utilzaçao  -->
 
-                <div class="row upload-form">
-                    <fieldset>
-                        <legend>A imagem a usar na decoração</legend>
-                        <div class="row field">
-                            <label class="col-xs-12 col-sm-4 col-md-3 noSidePad-xs noSideMarg-xs " for="">Imagem escolhida no <a href="#">banco de imagem</a></label>
-                            <input class="col-xs-12 col-sm-7 col-md-7" type="url" pattern="https?://.+" name="data[Img][img-url]" placeholder="Cole aqui o link copiado">
-                        </div>
 
-                        <div class="row field">
-                            <label class="col-xs-12 col-sm-4 col-md-3 noSidePad-xs noSideMarg-xs" for="">ou envie uma imagem da sua autoria</label>
-                            <div class="box">
-                                <input type="file" name="data" id="file-1" class="inputfile " data-multiple-caption="{count} ficheiros escolhidos"  />
-                                <label class="noSideMarg" for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Escolha um ficheiro&hellip;</span></label>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div><div class="row upload-form">
-                    <fieldset>
-                        <legend>A imagem a usar na decoração</legend>
-                        <div class="row field">
-                            <label class="col-xs-12 col-sm-4 col-md-3 noSidePad-xs noSideMarg-xs " for="">Imagem escolhida no <a href="#">banco de imagem</a></label>
-                            <input class="col-xs-12 col-sm-7 col-md-7" type="url" pattern="https?://.+" name="data[Img][img-url]" placeholder="Cole aqui o link copiado">
-                        </div>
+                                <div class="row upload-form">
+                                    <fieldset>
+                                        <legend>A imagem a usar na decoração</legend>
+                                        <div class="row field">
+                                            <label class="col-xs-12 col-sm-4 col-md-3 noSidePad-xs noSideMarg-xs " for="">Imagem escolhida no <a href="#">banco de imagem</a></label>
+                                            <input class="col-xs-12 col-sm-7 col-md-7" type="url" pattern="https?://.+" name="data[Img][img-url]" placeholder="Cole aqui o link copiado">
+                                        </div>
 
-                        <div class="row field">
-                            <label class="col-xs-12 col-sm-4 col-md-3 noSidePad-xs noSideMarg-xs" for="">ou envie uma imagem da sua autoria</label>
-                            <div class="box">
-                                <input type="file" name="data" id="file-1" class="inputfile " data-multiple-caption="{count} ficheiros escolhidos"  />
-                                <label class="noSideMarg" for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Escolha um ficheiro&hellip;</span></label>
-                            </div>
-                        </div>
-                    </fieldset>
-                </div>
+                                        <div class="row field">
+                                            <label class="col-xs-12 col-sm-4 col-md-3 noSidePad-xs noSideMarg-xs" for="">ou envie uma imagem da sua autoria</label>
+                                            <div class="box">
+                                                <input type="file" name="data" id="file-1" class="inputfile " data-multiple-caption="{count} ficheiros escolhidos"  />
+                                                <label class="noSideMarg" for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Escolha um ficheiro&hellip;</span></label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
 
                 <div class="row footer-form">
                     <fieldset>
@@ -248,6 +233,12 @@
                     <button id="SubmitBtn" type="submit" class="btn action-btn">Orçamentar</button>
                 </div>
                 </form>
+                <!-- SUCESS MESSAGE -->
+                                <div class="row sucess-form" style="height: 100vh;display:none;">
+                                    <h3 class="blue">A sua encomenda foi enviada</h3>
+                                      <p>Existem dois tipos de <i>headers</i>, um dinâmico com carrousel de fundo e um estático com apenas uma imagem de fundo
+                                    </p>
+                                </div>
         </div>
         </section>
 

@@ -206,12 +206,12 @@
                     <button id="SubmitBtn" type="submit" class="btn action-btn">Orçamentar</button>
                 </div>
                 </form>
-
-                <div class="row sucess-form" style="height: 100vh;display:none;">
-                    <h3 class="blue">A sua encomenda foi enviada</h3>
-                      <p>Existem dois tipos de <i>headers</i>, um dinâmico com carrousel de fundo e um estático com apenas uma imagem de fundo
-                    </p>
-                </div>
+                <!-- SUCESS MESSAGE -->
+                                <div class="row sucess-form" style="height: 100vh;display:none;">
+                                    <h3 class="blue">A sua encomenda foi enviada</h3>
+                                      <p>Existem dois tipos de <i>headers</i>, um dinâmico com carrousel de fundo e um estático com apenas uma imagem de fundo
+                                    </p>
+                                </div>
         </div>
         </section>
 
@@ -232,51 +232,6 @@
 
     <script src="../js/main.js"></script>
     <script text="javascript">
-
-    $(function() {
-    // Get the form.
-    var form = $('#EncForm');
-
-    $(form).submit(function(event) {
-    // Stop the browser from submitting the form.
-    event.preventDefault();
-    var formData = new FormData($(this)[0]);
-
-       $.ajax({
-              type: "POST",
-              url: form.attr('action'),
-              data: formData, // serializes the form's elements.
-              async: false,
-              success: function(data)
-              {
-                  console.log(data);
-                  if(data==='1'){
-                    $('#EncForm').fadeOut('slow',function(){
-                      $('.sucess-form').fadeIn();
-                    });
-                  }else{
-                    alert('Aconteceu um problema com seu pedido, por favor tente outra x');
-                  }
-              },
-              cache: false,
-              contentType: false,
-              processData: false,
-              xhr: function() {  // Custom XMLHttpRequest
-                  var myXhr = $.ajaxSettings.xhr();
-                  if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
-                      myXhr.upload.addEventListener('progress', function () {
-                          // faz alguma coisa durante o progresso do upload
-                      }, false);
-                  }
-              return myXhr;
-              }
-            });
-          return false;
-    });
-
-});
-
-
         $(document).ready(function() {
               WINDOWS_SELECT()
             $('#Add_Field_Button').on("click", function(e) { //user click on remove text
