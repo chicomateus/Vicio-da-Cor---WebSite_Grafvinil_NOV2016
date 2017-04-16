@@ -1,4 +1,8 @@
 <?php
+error_reporting(-1);
+ini_set('display_errors', 'On');
+set_error_handler("var_dump");
+
 date_default_timezone_set('Europe/Lisbon');
 
 include 'mailClass.php';
@@ -9,10 +13,6 @@ $form  = new FormData();
 // print_r($_FILES);
 //   print_r($_POST);
 // echo "</pre>";
-$_body='<html>
-  <body> ';
-$end_html ='</body>
-</html>';
 
 if (isset($_POST['data']['form'])){
   //----------- DEFINIR VARIAVEIS
@@ -76,7 +76,7 @@ if (isset($_POST['data']['form'])){
   /* Email de quem gere e recebe as encomendas*/
   $email_main="rmvrocha@gmail.com";
   /* Email de envio - tem de ser diferente do $email_main */
-  $email_sender="ruicatrinho@gmail.com";
+  $email_sender="noreply@spaziocolorato.pt";
   /* Email do cliente - para envio de copia e confirmação da encomenda*/
   $client_email= $_POST['data']['main']['info-personal']['email'];
 
@@ -85,12 +85,12 @@ if (isset($_POST['data']['form'])){
     $to        = $email_main;
     $from      = $email_sender;
     $subject   = "Nova Encomenda - ".$_POST['data']['form']." - ".$today;
-    $html_body = $_body.'<h2>Nova Encomenda - '.$_POST['data']['form'].'</h2>';
+    $html_body = '<h2>Nova Encomenda - '.$_POST['data']['form'].'</h2>';
     $html_body.=" <p><strong>Data do pedido</strong> ".$today.'</p>';
     $html_body.= $form->prepare_html_personalData($_POST['data']['main']);
     $html_body.= $html;
 
-    $html_body.= $form->prepare_html_img($_POST['data']['Img'],$_FILES['data']).$end_html;
+    $html_body.= $form->prepare_html_img($_POST['data']['Img'],$_FILES['data']);
 
     $mail   = new Mail($to, $from, $subject,'', $html_body);
 
@@ -102,19 +102,22 @@ if (isset($_POST['data']['form'])){
     $mail->add_header("Reply-To: ".$client_email);
     $sucess = $mail->send();
 
-
-
+    if($sucess){
+      echo "enviado com sucesso - " . $sucess;
+    }else{
+      echo "não enviado, tente outra x";
+    }
     // A ENVIAR O EMAIL de copia para o cliente
-/*------------------------*/
+
         $to        = $client_email;
         $from      = $email_sender;
         $subject   = "Pedido de Orçamento - ".$_POST['data']['form'] ;
-        $html_body = $_body.'<h2>Nova Encomenda - '.$_POST['data']['form'].'</h2>';
+        $html_body = '<h2>Nova Encomenda - '.$_POST['data']['form'].'</h2>';
         $html_body.=" <p><strong>Data do pedido</strong> ".$today.'</p>';
         $html_body.= $form->prepare_html_personalData($_POST['data']['main']);
         $html_body.= $html;
 
-        $html_body.= $form->prepare_html_img($_POST['data']['Img'],$_FILES['data']).$end_html;
+        $html_body.= $form->prepare_html_img($_POST['data']['Img'],$_FILES['data']);
 
         $mail   = new Mail($to, $from, $subject,'', $html_body);
 
@@ -124,10 +127,13 @@ if (isset($_POST['data']['form'])){
         }
     //_____________________
         $mail->add_header("Reply-To: ".$client_email);
-        $mail->send();
-/*------------------------*/
+        $second = $mail->send();
 
+        if($second){
+          echo "||| 2enviado com sucesso - " . $second;
+        }else{
+          echo "não enviado, tente outra x";
+        }
 
-        echo $sucess;
 }
 ?>
